@@ -1,21 +1,28 @@
 ---
+import Image from "astro/components/Image.astro"
+
 interface Props {
 	title: string;
 	body: string;
 	href: string;
+	tech: string;
+	image?: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, tech, image="" } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
-		<h2>
+	<a target="_blank" href={href}>
+		<Image src={image} alt={title} width={300} height={200} loading="eager" title={title} class="w-full object-contain"/>
+		<h2 class="my-4 font-bold">
 			{title}
-			<span>&rarr;</span>
 		</h2>
-		<p>
+		<p class="text-sm">
 			{body}
+		</p>
+		<p class="text-sm font-mono mt-4">
+			Desarrollado con: {tech}
 		</p>
 	</a>
 </li>
@@ -41,11 +48,6 @@ const { href, title, body } = Astro.props;
 		color: white;
 		background-color: #23262d;
 		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	p {
 		margin-top: 0.5rem;
