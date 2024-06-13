@@ -39,6 +39,9 @@ const title = "Luis Blanco"
 		</svg>
 		<h1>Hola! Soy <span class="text-gradient">{title}</span></h1>
 		<Profile />
+
+		<section>
+		<h3 class="mb-4">Algunos proyectos:</h3>
 		<ul role="list" class="grid md:grid-cols-2 gap-8">
 			{projects.map(project => 
 				<Card
@@ -50,6 +53,7 @@ const title = "Luis Blanco"
 			/>
 			)}
 		</ul>
+	</section>
 	</main>
 </Layout>
 
